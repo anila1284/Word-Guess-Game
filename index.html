@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jiggle Into JavaScript</title>    
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
+<body>  
+    <div class="jumbotron">
+        <img id="logoImage" src= "assets/images/mainImage.jpg">
+        <h1 class="text-center logo">Word Guess</h1>
+        <h2 class="text-center">Press any key to get started</h2>
+      </div>
+    
+      <div class="container">
+    
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-2">
+              <h3 class="card-header">Current word</h3>
+              <div class="card-body text-center">
+                <h1 id="computer-pick"></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-2">
+              <h3 class="card-header">Your Guesses</h3>
+              <div class="card-body text-center">
+                <button id="button-1" class="btn btn-danger btn-choice" value="1">
+                  <h1>1</h1>
+                </button>
+                <button id="button-2" class="btn btn-danger btn-choice" value="2">
+                  <h1>2</h1>
+                </button>
+                <button id="button-3" class="btn btn-danger btn-choice" value="3">
+                  <h1>3</h1>
+                </button>
+                <button id="button-4" class="btn btn-danger btn-choice" value="4">
+                  <h1>4</h1>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-2">
+              <h3 class="card-header">Number of guesses remaining</h3>
+              <div class="card-body text-center">
+                <h1 id="result"></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>         
+      
+       
+</body>
+</html>
