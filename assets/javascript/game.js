@@ -7,7 +7,7 @@ $(document).ready(function() {
     var computerPick;
     var placeHolder;
 
-    $(document).keyup(function(e) {
+    $(document).on('keypress', function(e) {
 
         var letters = ["Apple", "Banana", "Kitten", "Bingo", "Fish", "McDonald", "Mickey", "JackAndJill"];     
 
@@ -27,7 +27,9 @@ $(document).ready(function() {
       $("#computer-pick").text(placeHolder);
       gameStarted = true;
 
-      console.log(String.fromCharCode(e.keyCode));
+      console.log(computerPick);
+
+      //console.log(String.fromCharCode(e.keyCode));
       
     }
     else{
@@ -35,12 +37,43 @@ $(document).ready(function() {
         var keynum = String.fromCharCode(e.keyCode);
         //compare
 
+         if(computerPick.includes(keynum)){
 
+          //alert("true: " + keynum);
+
+          var index = computerPick.indexOf(keynum);
+
+          
+          console.log(index);
+
+          var guessedWord =  placeHolder.replaceAt(index + 1, keynum); 
+
+          console.log(guessedWord);
+          console.log(placeHolder);
+
+          $("#computer-pick").text(guessedWord);
+          
+          gameStarted = false;
+          
+         }
          
-        gameStarted = false;
+     
 
     }
+    String.prototype.replaceAt=function(index, replacement) {
+      return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+
+    };
+
 
     });
 
   });
+
+
+
+
+
+ 
+
+ 
