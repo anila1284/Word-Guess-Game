@@ -1,4 +1,6 @@
 
+      var letters = ["apple", "banana", "kitten", "bingo", "fish", "mcdonald", "mickey", "jackandjill"]; 
+      var indexes = new Array();  
 
 $(document).ready(function() {
 
@@ -6,17 +8,22 @@ $(document).ready(function() {
     var gameOver = false;
     var computerPick;
     var placeHolder;
+     
 
-    $(document).on('keypress', function(e) {
+    $(document).on('keypress', function(e) {     
 
-        var letters = ["Apple", "Banana", "Kitten", "Bingo", "Fish", "McDonald", "Mickey", "JackAndJill"];     
 
-        if(!gameStarted){
+
+        if(!gameStarted){              
+         
+          indexes = new Array();  
+
         //generate a new random number between 1 and 8.
         var random = Math.floor(Math.random() * 8) + 1;
 
         computerPick = letters[random];
-
+        
+       
         placeHolder = "";
 
         for(var i = 0; i < computerPick.length; i ++){
@@ -34,41 +41,57 @@ $(document).ready(function() {
     }
     else{
 
-        var keynum = String.fromCharCode(e.keyCode);
+        var keyPressed = String.fromCharCode(e.keyCode);
         //compare
 
-         if(computerPick.includes(keynum)){
+         if(computerPick.includes(keyPressed)){
 
           //alert("true: " + keynum);
 
-          var index = computerPick.indexOf(keynum);
+          var index = computerPick.indexOf(keyPressed);
+
+          indexes[keyPressed] = index;
+
+          //indexes.push({keyPressed: index});
+
 
           
-          console.log(index);
+          //console.log(index);
 
-          var guessedWord =  placeHolder.replaceAt(index + 1, keynum); 
-
-          console.log(guessedWord);
-          console.log(placeHolder);
-
-          $("#computer-pick").text(guessedWord);
+          var keyExists = isKeyInObject(indexes, keyPressed);
           
-          gameStarted = false;
+             
+          console.log(indexes[keyPressed]);        
+          
+          
+          for (var key in indexes) {
+            
+             
+        }
+          
+
+         
+
+         $("#computer-pick").text(placeHolder);
+          
+          
           
          }
          
      
 
     }
-    String.prototype.replaceAt=function(index, replacement) {
-      return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
-
-    };
+ 
 
 
     });
 
   });
+
+  function isKeyInObject(obj, key) {
+    var res = Object.keys(obj).some(v => v == key);
+    console.log(res);
+}
 
 
 
